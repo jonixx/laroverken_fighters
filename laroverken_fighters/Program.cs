@@ -72,7 +72,7 @@ namespace laroverken_fighters
             } //end of while loop
 
             //if we are here someone died
-            if (enemy.isAlive == true)
+            if (enemy.isAlive == false)
             {
                 //Enemy died died
                 Console.ForegroundColor = ConsoleColor.Green;

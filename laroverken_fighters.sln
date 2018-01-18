@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "laroverken_fighters", "laroverken_fighters\laroverken_fighters.csproj", "{2240396C-153A-4F63-8628-8A4EE8E8B3F4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "for loops csharpskolan", "for loops csharpskolan\for loops csharpskolan.csproj", "{E7925D8E-CD3C-419D-A628-58AB677E4708}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{2240396C-153A-4F63-8628-8A4EE8E8B3F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2240396C-153A-4F63-8628-8A4EE8E8B3F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2240396C-153A-4F63-8628-8A4EE8E8B3F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7925D8E-CD3C-419D-A628-58AB677E4708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7925D8E-CD3C-419D-A628-58AB677E4708}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7925D8E-CD3C-419D-A628-58AB677E4708}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7925D8E-CD3C-419D-A628-58AB677E4708}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
