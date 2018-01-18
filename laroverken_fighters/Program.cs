@@ -8,6 +8,7 @@ namespace laroverken_fighters
 {
     class Program
     {
+        //Skapar ett objekt från Enemy byggritningen (klass)
         static Enemy enemy = new Enemy();
 
         static Random randomness = new Random();
@@ -26,7 +27,7 @@ namespace laroverken_fighters
 
 
             //Game loop. As long as both lives, do this
-            while (playerHP > 0 && enemy.hp > 0)
+            while (playerHP > 0 && enemy.isAlive == true)
             {
                 Console.Clear();
 
@@ -39,16 +40,16 @@ namespace laroverken_fighters
                 userInput = Console.ReadLine();
 
                 //User choice
-                if (userInput == "1") //attack
+                if (userInput == "1") //player attack
                 {
                     playerDmg = randomness.Next(3, 8);
-                    enemy.hp -= playerDmg;
+                    enemy.TakeDamage(playerDmg);
 
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Player attacked for " + playerDmg);
 
                 }
-                else if(userInput == "2") //heal
+                else if(userInput == "2") //player heal
                 {
                     int healAmount = randomness.Next(1, 3);
                     playerHP += healAmount;
@@ -71,7 +72,7 @@ namespace laroverken_fighters
             } //end of while loop
 
             //if we are here someone died
-            if (enemy.hp < 1)
+            if (enemy.isAlive == true)
             {
                 //Enemy died died
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -95,7 +96,7 @@ namespace laroverken_fighters
 
             {
                 int healAmount = randomness.Next(1, 3);
-                enemy.hp += healAmount;
+                enemy.Heal(healAmount);
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine(enemy.name + " healed for " + enemy.dmg);
             }
@@ -117,8 +118,7 @@ namespace laroverken_fighters
             Console.WriteLine("PLayer HP:" + playerHP);
 
 
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(enemy.name + "'s Enemy HP:" + enemy.hp);
+            enemy.DisplayInfo();
         }
     }
 }
