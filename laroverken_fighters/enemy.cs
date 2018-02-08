@@ -11,15 +11,23 @@ namespace laroverken_fighters
     //vilka egenskaper den har
     class Enemy
     {
-        int hp;
+        protected Random randomness = new Random();
+
+        protected int hp;
         public int dmg;
         public string name;
         public bool isAlive = true;
+
+        //Klassens konstruktor
+        public Enemy()
+        {
+            Setup();
+        }
+
               
         //Initialize, sätt värden på variablerna
-        public void Setup()
+        private void Setup()
         {
-            Random randomness = new Random();
 
             hp = randomness.Next(6, 15);
             dmg = randomness.Next(2, 6);
@@ -38,7 +46,31 @@ namespace laroverken_fighters
 
         }//End of void Setup
 
-        public void TakeDamage(int _damage)
+
+        public virtual void DecideAction()
+        {
+
+            if (randomness.Next(0, 10) >= 7) //Enemy heals if number is greater than X
+
+            {
+                int healAmount = randomness.Next(1, 3);
+                Heal(healAmount);
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine(name + " healed for " + dmg);
+            }
+            else
+            {
+                //Enemy attacks
+                dmg = randomness.Next(2, 7);
+                Program.playerHP -= dmg; //TODO Remove this Program.playerHP, make system
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(name + " attacked for " + dmg);
+            }
+        }
+
+
+        public virtual void TakeDamage(int _damage)
         {
             hp -= _damage;
 
